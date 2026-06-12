@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Kim Ngan Bui — Brand Strategist · SEO/GEO Specialist · Designer</title>
+  <meta name="description" content="Kim Ngan Bui builds brands that mean something, rank across Google and AI search, and look unforgettable. Brand strategy & management, SEO/GEO, and 2D/3D design & animation." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Kim Ngan Bui — Brand, Search & Design" />
+  <meta property="og:description" content="Brand strategy meets SEO/GEO and 2D/3D design. Brands people love and engines recommend." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Validag "Ledger" design-system fonts (Archivo / Hanken Grotesk / JetBrains Mono) -->
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=16" />
+</head>
+<body>
+  <!-- Grain / noise overlay -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- Custom cursor -->
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="cursor-follow" aria-hidden="true"><span class="cursor-label"></span></div>
+
+  <!-- Preloader -->
+  <div class="loader" id="loader">
+    <div class="loader__inner">
+      <div class="loader__count"><span id="loaderNum">0</span><i>%</i></div>
+      <div class="loader__word">
+        <span data-word>Brand</span>
+        <span data-word>Search</span>
+        <span data-word>Design</span>
+        <span data-word>Grow</span>
+      </div>
+    </div>
+    <div class="loader__bar"><span id="loaderBar"></span></div>
+  </div>
+
+  <!-- Progress / scroll indicator -->
+  <div class="scroll-progress" aria-hidden="true"><span id="scrollBar"></span></div>
+
+  <!-- Nav -->
+  <header class="nav" id="nav">
+    <a href="#top" class="nav__logo" data-cursor="View">
+      <span class="nav__mark">✦</span> <em>Kim</em> Ngan Bui
+    </a>
+    <nav class="nav__links">
+      <a href="#work" data-link>Work</a>
+      <a href="#services" data-link>Services</a>
+      <a href="#about" data-link>About</a>
+      <a href="#contact" data-link class="nav__cta">Let's talk</a>
+    </nav>
+    <button class="nav__burger" id="burger" aria-label="Menu">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <!-- Mobile menu -->
+  <div class="menu" id="menu">
+    <div class="menu__bg"></div>
+    <nav class="menu__nav">
+      <a href="#work" data-menu-link><span>01</span> Work</a>
+      <a href="#services" data-menu-link><span>02</span> Services</a>
+      <a href="#about" data-menu-link><span>03</span> About</a>
+      <a href="#contact" data-menu-link><span>04</span> Contact</a>
+    </nav>
+    <div class="menu__foot">
+      <a href="mailto:kimraeder.de@gmail.com">kimraeder.de@gmail.com</a>
+      <div class="menu__social"><a href="https://www.linkedin.com/in/nganbk311/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.behance.net/nganbk311" target="_blank" rel="noopener">Behance</a></div>
+    </div>
+  </div>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="hero">
+      <canvas id="webgl" class="hero__canvas"></canvas>
+
+      <div class="hero__content">
+        <div class="hero__tag reveal-up">
+          <span class="dot"></span> Available for select projects — 2026
+        </div>
+
+        <h1 class="hero__title">
+          <span class="line"><span class="line__inner">Brands people</span></span>
+          <span class="line"><span class="line__inner"><em>love</em>, engines</span></span>
+          <span class="line"><span class="line__inner"><em>recommend.</em></span></span>
+        </h1>
+
+        <div class="hero__meta">
+          <p class="hero__lead reveal-up">
+            I'm <strong>Kim Ngan Bui</strong> — a brand strategist, SEO &amp; GEO specialist and
+            designer. I build brands that mean something, rank across Google &amp; AI search,
+            and look unforgettable in 2D and 3D.
+          </p>
+          <a href="#work" class="hero__scroll" data-cursor="Scroll">
+            <span>Selected Work</span>
+            <svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 4v16m0 0l6-6m-6 6l-6-6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero__corner hero__corner--bl reveal-up">
+        <span>Scroll to explore</span>
+      </div>
+      <div class="hero__corner hero__corner--br reveal-up">
+        <span>Singapore · Remote · Worldwide</span>
+      </div>
+    </section>
+
+    <!-- ============ MARQUEE ============ -->
+    <section class="marquee" aria-hidden="true">
+      <div class="marquee__track" id="marquee">
+        <span>Brand Strategy <i>✦</i> Brand Management <i>✦</i> SEO <i>✦</i> GEO <i>✦</i> 2D &amp; 3D Design <i>✦</i> Animation <i>✦</i> 1:1 Coaching <i>✦</i> </span>
+        <span>Brand Strategy <i>✦</i> Brand Management <i>✦</i> SEO <i>✦</i> GEO <i>✦</i> 2D &amp; 3D Design <i>✦</i> Animation <i>✦</i> 1:1 Coaching <i>✦</i> </span>
+      </div>
+    </section>
+
+    <!-- ============ INTRO / ABOUT ============ -->
+    <section class="intro" id="about">
+      <div class="intro__grid">
+        <div class="intro__left">
+          <p class="intro__label reveal-up">(About)</p>
+          <figure class="portrait reveal-up">
+            <img id="portrait" src="assets/portrait.jpg" alt="Kim Ngan Bui" onerror="this.style.display='none'" />
+            <figcaption>Kim Ngan Bui<span>Brand · Search · Design</span></figcaption>
+          </figure>
+        </div>
+        <h2 class="intro__text">
+          <span data-split>I help brands turn strategy into recognition — positioning that
+          resonates, content engines that rank in Google and AI answers, and design that
+          makes all of it unforgettable.</span>
+        </h2>
+      </div>
+
+      <div class="stats">
+        <div class="stat reveal-up">
+          <div class="stat__num">Brand</div>
+          <div class="stat__plus">strategy</div>
+          <p>Mini MBA in Brand Management — plus in-house brand work alongside McKinsey in Singapore.</p>
+        </div>
+        <div class="stat reveal-up">
+          <div class="stat__num">Search</div>
+          <div class="stat__plus">SEO · GEO</div>
+          <p>Agency-trained across ecommerce &amp; corporate sites — and 1-on-1 SEO/GEO coaching.</p>
+        </div>
+        <div class="stat reveal-up">
+          <div class="stat__num">Design</div>
+          <div class="stat__plus">2D · 3D</div>
+          <p>2D &amp; 3D design and animation, delivered through a trusted freelance network.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WORK ============ -->
+    <section class="work" id="work">
+      <div class="section-head">
+        <p class="section-head__label reveal-up">(Selected Work)</p>
+        <h2 class="section-head__title"><span data-split>Where I've made an impact</span></h2>
+      </div>
+
+      <div class="projects">
+        <article class="project" data-project data-id="taisin">
+          <a href="#case" class="project__media" data-cursor="Read case" data-tilt>
+            <img class="project__visual" src="assets/work/taisin/thumb-marketing.jpg" alt="Tai Sin busbar trunking system marketing design" loading="lazy" />
+            <span class="project__index">01</span>
+          </a>
+          <div class="project__info">
+            <h3>Tai Sin Power Distribution</h3>
+            <p class="project__cat">B2B Industrial · Brand &amp; SEO</p>
+            <p class="project__desc">Led the full marketing function for Tai Sin's busbar trunking (busway) line — brand identity, full-funnel collateral, 3D &amp; video, and a search-led launch across Singapore, Vietnam &amp; Malaysia. Multiple group sites ranking page&nbsp;1.</p>
+            <ul class="project__tags"><li>Brand Identity</li><li>Technical SEO</li><li>GEO</li></ul>
+          </div>
+        </article>
+
+        <article class="project project--logo" data-project data-id="electgo">
+          <a href="#case" class="project__media" data-cursor="Read case" data-tilt>
+            <img class="project__visual" src="assets/work/electgo/logo.jpg" alt="Electgo logo" loading="lazy" />
+            <span class="project__index">02</span>
+          </a>
+          <div class="project__info">
+            <h3>Electgo</h3>
+            <p class="project__cat">E-commerce · SEO &amp; Coaching</p>
+            <p class="project__desc">Audited a struggling e-commerce site, rebuilt its digital marketing strategy on data-driven insights, and tracked KPIs for management. Traffic grew from 150 to 30,000 visitors per month in just four months — and I coached the person in charge of their marketing in SEO.</p>
+            <ul class="project__tags"><li>Website Audit</li><li>SEO Coaching</li><li>200× Traffic</li></ul>
+          </div>
+        </article>
+
+        <article class="project project--validag" data-project data-id="validag">
+          <a href="#case" class="project__media" data-cursor="Read case" data-tilt>
+            <img class="project__visual" src="assets/work/validag.png" alt="Validag Solutions website hero — turning satellites and smartphones into accountability tools" loading="lazy" />
+            <span class="project__index">03</span>
+          </a>
+          <div class="project__info">
+            <h3>Validag</h3>
+            <p class="project__cat">Brand &amp; Web · Co-founder</p>
+            <p class="project__desc">“Proof, not promises.” A verification-tech startup turning satellites and smartphones into accountability tools — I co-founded it and lead brand, website and generative-engine visibility.</p>
+            <ul class="project__tags"><li>Branding</li><li>Web</li><li>GEO</li></ul>
+          </div>
+        </article>
+
+        <article class="project project--tat" data-project data-id="topaithreats">
+          <a href="#case" class="project__media" data-cursor="Read case" data-tilt>
+            <img class="project__visual" src="assets/work/topaithreats/logo.jpg" alt="Top AI Threats logo" loading="lazy" />
+            <span class="project__index">04</span>
+          </a>
+          <div class="project__info">
+            <h3>Top AI Threats</h3>
+            <p class="project__cat">Brand &amp; Web · Design + Build</p>
+            <p class="project__desc">Designed and built an evidence-based reference for AI-enabled threats end to end — from the logo, through information architecture, to development (using Claude).</p>
+            <ul class="project__tags"><li>Logo</li><li>Information Architecture</li><li>Web Dev</li></ul>
+          </div>
+        </article>
+
+        <article class="project project--logo" data-project data-id="branchcable">
+          <a href="#case" class="project__media" data-cursor="Read case" data-tilt>
+            <img class="project__visual" src="assets/work/branchcable/3d-modeling.jpg" alt="Branch Cable System 3D product model" loading="lazy" />
+            <span class="project__index">05</span>
+          </a>
+          <div class="project__info">
+            <h3>Branch Cable System</h3>
+            <p class="project__cat">Industrial · Brand, Web &amp; SEO</p>
+            <p class="project__desc">Built entirely from scratch — landing page, brochures, posters and 3D product visuals — plus the on-page SEO that took Tai Sin's prefabricated branch cable to #1 on Google for "branch cable" and "branch cable supplier".</p>
+            <ul class="project__tags"><li>From Scratch</li><li>3D &amp; Design</li><li>#1 Rankings</li></ul>
+          </div>
+        </article>
+
+        <article class="project" data-project data-id="lightjourney">
+          <a href="#case" class="project__media" data-cursor="Read case" data-tilt>
+            <img class="project__visual" src="assets/work/lightjourney.jpg" alt="Light Journey brand identity and trifold brochure" loading="lazy" />
+            <span class="project__index">06</span>
+          </a>
+          <div class="project__info">
+            <h3>Light Journey</h3>
+            <p class="project__cat">Brand Identity · SEO</p>
+            <p class="project__desc">Full brand identity for an architectural lighting supplier — logo, brochures, video, namecards and website — plus the search foundation. ~30k monthly organic reach and inquiries up to S$300k each.</p>
+            <ul class="project__tags"><li>Branding</li><li>Web</li><li>SEO</li></ul>
+          </div>
+        </article>
+
+        <article class="project" data-project data-id="pdnet">
+          <a href="#case" class="project__media" data-cursor="Read case" data-tilt>
+            <img class="project__visual" src="assets/work/pdnet/brochure.jpg" alt="PDnet brochure design" loading="lazy" />
+            <span class="project__index">07</span>
+          </a>
+          <div class="project__info">
+            <h3>PDnet</h3>
+            <p class="project__cat">B2B Brand · Collateral</p>
+            <p class="project__desc">Partnered with a freelance designer on the logo, then built PDnet's full marketing toolkit from there — brochures, catalog, packaging and presentation.</p>
+            <ul class="project__tags"><li>Branding</li><li>Collateral</li><li>Packaging</li></ul>
+          </div>
+        </article>
+
+        <article class="project" data-project data-id="lkhpd">
+          <a href="#case" class="project__media" data-cursor="Read case" data-tilt>
+            <img class="project__visual" src="assets/work/lkhpd/brochure.jpg" alt="LKH Projects Distribution corporate brochure design" loading="lazy" />
+            <span class="project__index">08</span>
+          </a>
+          <div class="project__info">
+            <h3>LKH Projects Distribution</h3>
+            <p class="project__cat">B2B Marketing · Brand &amp; Web</p>
+            <p class="project__desc">Revamped the entire website with an agency and built the marketing engine from scratch — full funnel, new channels, video, events, collateral and SEO.</p>
+            <ul class="project__tags"><li>Web Revamp</li><li>Marketing Funnel</li><li>SEO</li></ul>
+          </div>
+        </article>
+
+        <article class="project" data-project data-id="networking">
+          <a href="#case" class="project__media" data-cursor="Read case" data-tilt>
+            <img class="project__visual" src="assets/work/networking/photo2.jpg" alt="LKHPD infrastructure networking event" loading="lazy" />
+            <span class="project__index">09</span>
+          </a>
+          <div class="project__info">
+            <h3>Networking Event</h3>
+            <p class="project__cat">Event · End-to-end</p>
+            <p class="project__desc">Orchestrated an LKHPD infrastructure networking event end to end — venue, invitations, and a fully digital registration, check-in and feedback experience. Over 60% rated it "Excellent".</p>
+            <ul class="project__tags"><li>Events</li><li>Digital Check-in</li><li>End-to-end</li></ul>
+          </div>
+        </article>
+
+        <article class="project" data-project data-id="groupsite">
+          <a href="#case" class="project__media" data-cursor="Read case" data-tilt>
+            <img class="project__visual" src="assets/work/groupsite/hero.jpg" alt="Tai Sin Group corporate website" loading="lazy" />
+            <span class="project__index">10</span>
+          </a>
+          <div class="project__info">
+            <h3>Tai Sin Group Website</h3>
+            <p class="project__cat">Corporate Web · Design</p>
+            <p class="project__desc">Co-designed the Tai Sin Group corporate website with a team member, then worked with development vendors to build and launch it.</p>
+            <ul class="project__tags"><li>Web Design</li><li>Corporate</li><li>Vendor Build</li></ul>
+          </div>
+        </article>
+
+        <article class="project" data-project data-id="render3d">
+          <a href="#case" class="project__media" data-cursor="Read case" data-tilt>
+            <img class="project__visual" src="assets/work/render3d.jpg" alt="Photoreal 3D product render" loading="lazy" />
+            <span class="project__index">11</span>
+          </a>
+          <div class="project__info">
+            <h3>3D Product Visualization</h3>
+            <p class="project__cat">3D Modeling · Rendering</p>
+            <p class="project__desc">Photoreal 3D product modeling and rendering, produced through a curated freelance network.</p>
+            <ul class="project__tags"><li>3D</li><li>Rendering</li><li>Product</li></ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES ============ -->
+    <section class="services" id="services">
+      <div class="section-head">
+        <p class="section-head__label reveal-up">(Capabilities)</p>
+        <h2 class="section-head__title"><span data-split>What I do</span></h2>
+      </div>
+
+      <ul class="svc-list">
+        <li class="svc" data-svc>
+          <div class="svc__row">
+            <span class="svc__no">01</span>
+            <h3 class="svc__name">Brand Strategy &amp; Management</h3>
+            <p class="svc__sum">Positioning, architecture &amp; guidelines</p>
+            <span class="svc__arrow">→</span>
+          </div>
+          <div class="svc__detail">
+            <p>Brand positioning, architecture, naming, messaging and guidelines — grounded in a Mini MBA in Brand Management and in-house brand work alongside McKinsey in Singapore. Strategy that gives every other decision a north star.</p>
+            <div class="svc__chips"><span>Positioning</span><span>Brand Architecture</span><span>Naming</span><span>Guidelines</span></div>
+          </div>
+        </li>
+        <li class="svc" data-svc>
+          <div class="svc__row">
+            <span class="svc__no">02</span>
+            <h3 class="svc__name">SEO &amp; GEO</h3>
+            <p class="svc__sum">Be the answer Google &amp; AI cite</p>
+            <span class="svc__arrow">→</span>
+          </div>
+          <div class="svc__detail">
+            <p>Agency-trained technical and content SEO for ecommerce and corporate websites, extended into GEO — structuring entities and content so your brand is surfaced and cited by ChatGPT, Perplexity, Gemini and Google AI Overviews.</p>
+            <div class="svc__chips"><span>Technical SEO</span><span>Content SEO</span><span>GEO / AEO</span><span>Schema</span></div>
+          </div>
+        </li>
+        <li class="svc" data-svc>
+          <div class="svc__row">
+            <span class="svc__no">03</span>
+            <h3 class="svc__name">2D &amp; 3D Design &amp; Animation</h3>
+            <p class="svc__sum">Identity, in motion</p>
+            <span class="svc__arrow">→</span>
+          </div>
+          <div class="svc__detail">
+            <p>2D and 3D design and animation — from visual identity and graphics to motion and 3D scenes — delivered with a trusted, curated freelance network so the craft always matches the strategy.</p>
+            <div class="svc__chips"><span>2D Design</span><span>3D Design</span><span>Animation</span><span>Motion</span></div>
+          </div>
+        </li>
+        <li class="svc" data-svc>
+          <div class="svc__row">
+            <span class="svc__no">04</span>
+            <h3 class="svc__name">1-on-1 SEO / GEO Coaching</h3>
+            <p class="svc__sum">Level up your own team</p>
+            <span class="svc__arrow">→</span>
+          </div>
+          <div class="svc__detail">
+            <p>Private, practical coaching for founders, marketers and writers who want to own their search and AI visibility — personalized roadmaps, audits and hands-on sessions across SEO and GEO.</p>
+            <div class="svc__chips"><span>Coaching</span><span>Audits</span><span>Roadmaps</span><span>Workshops</span></div>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ============ PROCESS ============ -->
+    <section class="process">
+      <div class="section-head">
+        <p class="section-head__label reveal-up">(How we'll work)</p>
+        <h2 class="section-head__title"><span data-split>A simple, sharp process</span></h2>
+      </div>
+      <div class="process__grid">
+        <div class="pcard reveal-up"><span>01</span><h3>Diagnose</h3><p>Audit the brand, the funnel and search &amp; AI visibility. Find where attention and meaning leak.</p></div>
+        <div class="pcard reveal-up"><span>02</span><h3>Define</h3><p>Set positioning, then architect the content engine and design system around it.</p></div>
+        <div class="pcard reveal-up"><span>03</span><h3>Create</h3><p>Bring it to life across 2D, 3D and the web — fast, on-brand and built to rank.</p></div>
+        <div class="pcard reveal-up"><span>04</span><h3>Compound</h3><p>Measure, coach and iterate so authority, recognition and conversion grow over time.</p></div>
+      </div>
+    </section>
+
+    <!-- ============ PHILOSOPHY ============ -->
+    <section class="quote">
+      <blockquote class="quote__text">
+        <span data-split>“A brand that's only beautiful gets forgotten. A brand that's only optimized
+        gets ignored. I build the ones that do both.”</span>
+      </blockquote>
+      <cite class="quote__cite reveal-up">— Kim Ngan Bui</cite>
+    </section>
+
+    <!-- ============ CONTACT / CTA ============ -->
+    <section class="contact" id="contact">
+      <p class="contact__label reveal-up">(Let's build something)</p>
+      <a href="mailto:kimraeder.de@gmail.com" class="contact__big" data-cursor="Email" data-magnetic>
+        <span class="line"><span class="line__inner">Start a</span></span>
+        <span class="line"><span class="line__inner">project <em>✦</em></span></span>
+      </a>
+      <div class="contact__row">
+        <a href="mailto:kimraeder.de@gmail.com" class="contact__mail" data-magnetic>kimraeder.de@gmail.com</a>
+        <div class="contact__socials">
+          <a href="https://www.linkedin.com/in/nganbk311/" target="_blank" rel="noopener" data-link>LinkedIn</a>
+          <a href="https://www.behance.net/nganbk311" target="_blank" rel="noopener" data-link>Behance</a>
+          <a href="mailto:kimraeder.de@gmail.com" data-link>Email</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer__top">
+        <span>© 2026 Kim Ngan Bui</span>
+        <span>Brand · Search · Design</span>
+        <button class="footer__back" id="backTop" data-cursor="Top">Back to top ↑</button>
+      </div>
+      <div class="footer__big" aria-hidden="true">KIM NGAN BUI</div>
+    </footer>
+  </main>
+
+  <!-- Case-study detail overlay -->
+  <div class="case" id="case" aria-hidden="true">
+    <div class="case__backdrop" data-case-close></div>
+    <article class="case__panel" role="dialog" aria-modal="true" aria-labelledby="caseTitle">
+      <button class="case__close" data-case-close aria-label="Close case study">
+        <span>Close</span> <i>✕</i>
+      </button>
+      <div class="case__scroll" id="caseScroll" data-lenis-prevent>
+        <header class="case__head">
+          <span class="case__index" id="caseIndex"></span>
+          <p class="case__cat" id="caseCat"></p>
+          <h2 class="case__title" id="caseTitle"></h2>
+          <p class="case__intro" id="caseIntro"></p>
+          <dl class="case__meta" id="caseMeta"></dl>
+        </header>
+        <figure class="case__media">
+          <img id="caseImg" src="" alt="" />
+        </figure>
+        <div class="case__body" id="caseBody"></div>
+        <div class="case__cta" id="caseCta"></div>
+      </div>
+    </article>
+  </div>
+
+  <!-- Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script src="main.js?v=16"></script>
+</body>
+</html>
