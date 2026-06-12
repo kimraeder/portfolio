@@ -171,6 +171,9 @@ section{position:relative;padding:clamp(80px,12vw,180px) clamp(20px,4vw,50px)}
 .project--tat .project__media{background:#2f0506}
 .project--tat .project__visual{top:0;height:100%;object-fit:contain;padding:9%}
 .project--tat:hover .project__visual{filter:none}
+.project--nw .project__media{background:transparent}
+.project--nw .project__visual{top:0;height:100%;object-fit:contain;object-position:top}
+.project--nw:hover .project__visual{filter:none}
 .project__index{position:absolute;top:14px;left:16px;font-family:var(--serif);font-size:20px;color:#fff;z-index:2;mix-blend-mode:difference}
 /* Validag-brand accent for her own ventures (tokens lifted from validag.com) */
 .project--validag .project__cat{color:#5b8cff}
@@ -330,12 +333,15 @@ section{position:relative;padding:clamp(80px,12vw,180px) clamp(20px,4vw,50px)}
 .case__body .case__subhead{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:26px 0 14px;max-width:none}
 .case__media--contain{background:#fff}
 .case__media--contain img{object-fit:contain;padding:8%}
+.case__media--natural{aspect-ratio:auto;background:none;border-radius:14px}
+.case__media--natural img{height:auto;object-fit:contain}
 .case__body .case__quote{margin:30px 0 8px;padding:26px 28px;border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:12px;background:rgba(141,79,254,.06)}
 .case__body .case__quote p{font-family:var(--serif);font-size:clamp(18px,2.2vw,23px);line-height:1.45;color:var(--cream);max-width:none}
 .case__body .case__quote cite{display:block;margin-top:16px;font-family:var(--sans);font-style:normal;font-size:13px;letter-spacing:.04em;color:var(--accent)}
 .case__fig{margin:24px 0;border-radius:12px;overflow:hidden;background:rgba(239,233,221,.04);border:1px solid var(--line)}
 .case__fig img,.case__fig video{width:100%;height:auto;display:block}
 .case__fig--portrait{max-width:300px;margin-left:auto;margin-right:auto}
+.case__btnrow{margin:-12px 0 6px}
 .case__fig figcaption{font-size:13px;color:var(--cream-dim);padding:13px 16px;text-align:center;border-top:1px solid var(--line)}
 .case__gallery{display:grid;gap:14px;margin:24px 0}
 .case__gallery[data-n="1"]{grid-template-columns:1fr}

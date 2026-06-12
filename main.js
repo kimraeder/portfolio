@@ -708,11 +708,10 @@
     },
     networking: {
       index: '09', cat: 'Event · End-to-end', title: 'Networking Event',
-      img: 'assets/work/networking/photo2.jpg',
+      img: 'assets/work/networking/photo2.jpg', heroFit: 'natural',
       intro: 'An infrastructure networking event for LKH Projects Distribution, which I orchestrated end to end — from venue and invitations to a fully digital registration, check-in and feedback experience.',
       meta: [['Role', 'Event Lead'], ['Client', 'LKHPD'], ['Result', '60%+ rated Excellent']],
       tags: ['Events', 'Digital Check-in', 'End-to-end'],
-      links: [{ url: 'https://marketing93196.wixsite.com/lkhpd', label: 'View event site' }],
       blocks: [
         { type: 'section', title: 'Overview' },
         { type: 'text', text: 'I orchestrated an infrastructure networking event for LKH Projects Distribution end to end — owning the full event lifecycle, from concept and venue through to the on-the-day experience.' },
@@ -723,7 +722,8 @@
           'A fully digital experience — online registration, on-site check-in and post-event feedback',
           'On-site setup and event-day management'
         ] },
-        { type: 'image', src: 'assets/work/networking/register-site.jpg', alt: 'LKHPD Networking Event invitation and registration microsite', caption: 'The event microsite — invitation, online registration and check-in.' },
+        { type: 'image', src: 'assets/work/networking/register-website.jpg', alt: 'LKHPD Networking Event registration website', caption: 'The event microsite — invitation, online registration and check-in.' },
+        { type: 'button', url: 'https://marketing93196.wixsite.com/lkhpd', label: 'Visit the event site' },
         { type: 'section', title: 'On the day' },
         { type: 'gallery', images: [
           { src: 'assets/work/networking/hero.jpg', alt: 'Networking event — welcome and digital registration desk' },
@@ -792,6 +792,7 @@
         if (b.type === 'html') return b.html; // trusted, author-authored markup (e.g. the Validag Ledger showcase)
         if (b.type === 'image') return `<figure class="case__fig"><img loading="lazy" src="${b.src}" alt="${esc(b.alt || '')}" />${b.caption ? `<figcaption>${esc(b.caption)}</figcaption>` : ''}</figure>`;
         if (b.type === 'video') return `<figure class="case__fig${b.portrait ? ' case__fig--portrait' : ''}"><video src="${b.src}" autoplay muted loop playsinline controls preload="metadata"></video>${b.caption ? `<figcaption>${esc(b.caption)}</figcaption>` : ''}</figure>`;
+        if (b.type === 'button') return `<div class="case__btnrow"><a class="case__visit" href="${b.url}" target="_blank" rel="noopener" data-cursor="Visit">${esc(b.label || 'Visit site')} ↗</a></div>`;
         if (b.type === 'gallery') return `<div class="case__gallery" data-n="${b.images.length}">${b.images.map(im => `<figure class="case__gfig"><img loading="lazy" src="${im.src}" alt="${esc(im.alt || '')}" /></figure>`).join('')}</div>`;
         return '';
       }).join('');
@@ -807,7 +808,9 @@
       els.intro.textContent = p.intro;
       els.img.src = p.img; els.img.alt = p.title;
       els.img.parentElement.classList.toggle('case__media--contain', p.heroFit === 'contain');
+      els.img.parentElement.classList.toggle('case__media--natural', p.heroFit === 'natural');
       els.img.parentElement.style.background = p.heroBg || '';
+      els.img.style.objectPosition = p.heroPosition || '';
       els.meta.innerHTML = p.meta.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('');
       els.body.innerHTML =
         (p.blocks
