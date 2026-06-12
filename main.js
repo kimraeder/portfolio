@@ -23,10 +23,10 @@
       uTime:  { value: 0 },
       uRes:   { value: new THREE.Vector2(1, 1) },
       uMouse: { value: new THREE.Vector2(.5, .5) },
-      uA:     { value: new THREE.Color('#ff4d22') }, // accent
-      uB:     { value: new THREE.Color('#7a3df0') }, // violet
-      uC:     { value: new THREE.Color('#0c0b0a') }, // ink
-      uD:     { value: new THREE.Color('#c8ff3d') }, // acid
+      uA:     { value: new THREE.Color('#8d4ffe') }, // accent purple
+      uB:     { value: new THREE.Color('#3a2a5e') }, // deep violet
+      uC:     { value: new THREE.Color('#08070d') }, // ink
+      uD:     { value: new THREE.Color('#b98cff') }, // soft lilac highlight
     };
 
     const frag = `
@@ -65,22 +65,22 @@
         vec2 uv=vUv;
         float asp=uRes.x/uRes.y;
         vec2 p=uv; p.x*=asp;
-        float t=uTime*0.06;
+        float t=uTime*0.045;
         vec2 m=(uMouse-0.5);
-        // domain-warped flow field
-        float w1=fbm(p*1.6 + vec2(t, -t*0.7) + m*0.6);
-        float w2=fbm(p*2.4 + vec2(-t*0.8, t) + w1*0.8);
-        float n=fbm(p*1.2 + vec2(w1, w2) + m);
+        // smooth, large-scale domain-warped flow
+        float w1=fbm(p*0.85 + vec2(t, -t*0.6) + m*0.5);
+        float w2=fbm(p*1.25 + vec2(-t*0.7, t) + w1*0.7);
+        float n=fbm(p*0.75 + vec2(w1, w2) + m*0.8);
         n=n*0.5+0.5;
-        // color blend
-        vec3 col=mix(uC,uB, smoothstep(0.15,0.65,n));
-        col=mix(col,uA, smoothstep(0.45,0.95,n+w2*0.15));
-        col=mix(col,uD, smoothstep(0.8,1.0,n)*0.4);
+        // monochromatic purple blend — ink to violet, soft accent
+        vec3 col=mix(uC,uB, smoothstep(0.18,0.88,n));
+        col=mix(col,uA, smoothstep(0.62,1.0,n)*0.45);
+        col=mix(col,uD, smoothstep(0.9,1.0,n)*0.1);
         // vignette + darken toward ink so text reads
-        float vig=smoothstep(1.25,0.25,length(uv-0.5));
-        col=mix(uC,col,0.62*vig);
-        // subtle grain via noise
-        col+= (snoise(uv*vec2(uRes.x,uRes.y)*0.5)*0.015);
+        float vig=smoothstep(1.3,0.32,length(uv-0.5));
+        col=mix(uC,col,0.72*vig);
+        // faint grain
+        col+= (snoise(uv*vec2(uRes.x,uRes.y)*0.5)*0.007);
         gl_FragColor=vec4(col,1.0);
       }`;
 
