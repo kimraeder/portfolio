@@ -24,8 +24,8 @@
       uRes:   { value: new THREE.Vector2(1, 1) },
       uMouse: { value: new THREE.Vector2(.5, .5) },
       uA:     { value: new THREE.Color('#8d4ffe') }, // accent purple
-      uB:     { value: new THREE.Color('#3a2a5e') }, // deep violet
-      uC:     { value: new THREE.Color('#08070d') }, // ink
+      uB:     { value: new THREE.Color('#5a3da8') }, // medium violet glow
+      uC:     { value: new THREE.Color('#0d0a18') }, // base ink (dark indigo)
       uD:     { value: new THREE.Color('#b98cff') }, // soft lilac highlight
     };
 
@@ -64,23 +64,28 @@
       void main(){
         vec2 uv=vUv;
         float asp=uRes.x/uRes.y;
-        vec2 p=uv; p.x*=asp;
-        float t=uTime*0.045;
-        vec2 m=(uMouse-0.5);
-        // smooth, large-scale domain-warped flow
-        float w1=fbm(p*0.85 + vec2(t, -t*0.6) + m*0.5);
-        float w2=fbm(p*1.25 + vec2(-t*0.7, t) + w1*0.7);
-        float n=fbm(p*0.75 + vec2(w1, w2) + m*0.8);
-        n=n*0.5+0.5;
-        // monochromatic purple blend — ink to violet, soft accent
-        vec3 col=mix(uC,uB, smoothstep(0.18,0.88,n));
-        col=mix(col,uA, smoothstep(0.62,1.0,n)*0.45);
-        col=mix(col,uD, smoothstep(0.9,1.0,n)*0.1);
-        // vignette + darken toward ink so text reads
-        float vig=smoothstep(1.3,0.32,length(uv-0.5));
-        col=mix(uC,col,0.72*vig);
-        // faint grain
-        col+= (snoise(uv*vec2(uRes.x,uRes.y)*0.5)*0.007);
+        vec2 p=(uv-0.5); p.x*=asp;
+        float t=uTime*0.07;
+        vec2 mp=(uMouse-0.5); mp.x*=asp;
+
+        // base: subtle vertical lift toward the top
+        vec3 col = mix(uC, uC*1.55, smoothstep(1.0,0.0,uv.y)*0.6);
+
+        // large, soft, slowly-drifting glows -> clean mesh gradient (no texture)
+        vec2 c1 = vec2(sin(t*0.6)*0.35 - 0.28, cos(t*0.45)*0.26 + 0.20);
+        vec2 c2 = vec2(cos(t*0.5)*0.46 + 0.36, sin(t*0.55)*0.30 - 0.16);
+        float g1 = smoothstep(1.00, 0.04, length(p - c1));
+        float g2 = smoothstep(1.15, 0.04, length(p - c2));
+        col = mix(col, uB, g1*0.80);
+        col = mix(col, uA, g2*0.42);
+
+        // soft mouse-follow highlight
+        float gm = smoothstep(0.7, 0.0, length(p - mp));
+        col = mix(col, uD, gm*0.14);
+
+        // gentle vignette so the headline reads
+        float vig=smoothstep(1.5,0.5,length(uv-0.5));
+        col=mix(uC, col, 0.92*vig);
         gl_FragColor=vec4(col,1.0);
       }`;
 
@@ -866,9 +871,27 @@
      Boot
   --------------------------------------------------------- */
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  function initVantaHero() {
+    const el = document.getElementById('hero-bg');
+    if (!el) return;
+    if (prefersReduced || typeof VANTA === 'undefined' || !VANTA.BIRDS) return; // graceful fallback to the CSS bg
+    try {
+      window._vantaHero = VANTA.BIRDS({
+        el: el,
+        mouseControls: true, touchControls: true, gyroControls: false,
+        minHeight: 200.0, minWidth: 200.0, scale: 1.0, scaleMobile: 1.0,
+        backgroundColor: 0x0d0a18,
+        color1: 0x6900ff,
+        color2: 0x8d4ffe,
+        birdSize: 1.1, wingSpan: 26.0, speedLimit: 4.0,
+        separation: 28.0, alignment: 22.0, cohesion: 22.0, quantity: 3.0
+      });
+    } catch (e) { /* leave the CSS fallback background in place */ }
+  }
+
   function boot() {
     window.scrollTo(0, 0);
-    initWebGL();
+    initVantaHero();
     initScroll();
     initCursor();
     initServices();
