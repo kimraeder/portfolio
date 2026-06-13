@@ -378,6 +378,37 @@
     });
   }
 
+  // Work grid shows the first 6 projects; "Show more" reveals the rest.
+  function initWorkMore() {
+    const work = document.querySelector('.work');
+    const btn = document.querySelector('[data-work-more]');
+    if (!work || !btn) return;
+    const extras = [...work.querySelectorAll('.project--extra')];
+    const label = btn.querySelector('.work__more-label');
+    btn.addEventListener('click', () => {
+      const expanded = work.classList.toggle('is-expanded');
+      if (label) label.textContent = expanded ? 'Show less' : 'Show more work';
+      if (expanded && !prefersReduced && typeof gsap !== 'undefined') {
+        gsap.fromTo(extras, { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: .7, stagger: .06, ease: 'power3.out', clearProps: 'opacity,transform' });
+      }
+      if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
+      if (!expanded) {
+        const target = btn.getBoundingClientRect().top + window.scrollY - 160;
+        window.lenis ? window.lenis.scrollTo(target) : window.scrollTo({ top: target, behavior: 'smooth' });
+      }
+    });
+  }
+
+  // Process cards collapse to titles; click a card to expand its detail (independent toggles).
+  function initProcess() {
+    document.querySelectorAll('[data-pcard]').forEach((card) => {
+      card.querySelector('.pcard__row').addEventListener('click', () => {
+        card.classList.toggle('is-open');
+        if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
+      });
+    });
+  }
+
   /* ---------------------------------------------------------
      9. Nav: scroll progress, menu, smooth anchor
   --------------------------------------------------------- */
@@ -895,14 +926,29 @@
     initScroll();
     initCursor();
     initServices();
+    initProcess();
+    initWorkMore();
     initCaseStudies();
     initMarquee();
     runLoader(() => {
       initReveal();
       initCounters();
       initNav();
+      initFormSuccess();
       if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
     });
+  }
+
+  // After a successful FormSubmit POST the visitor is redirected back with ?sent=1 —
+  // swap the form for a thank-you note and bring them to it.
+  function initFormSuccess() {
+    if (new URLSearchParams(location.search).get('sent') !== '1') return;
+    const sent = document.getElementById('cformSent');
+    const form = document.getElementById('projectForm');
+    if (sent) sent.hidden = false;
+    if (form) form.style.display = 'none';
+    const target = document.getElementById('contact');
+    if (target) setTimeout(() => { lenis ? lenis.scrollTo(target, { offset: -10 }) : target.scrollIntoView(); }, 200);
   }
   // Run boot whether or not DOMContentLoaded has already fired (avoids a stuck
   // loader when this script evaluates after the event, e.g. on some reloads).
