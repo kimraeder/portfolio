@@ -152,7 +152,7 @@ section{position:relative;padding:clamp(80px,12vw,180px) clamp(20px,4vw,50px)}
 @media(max-width:860px){.portrait{max-width:220px}}
 .intro__text{font-family:var(--serif);font-weight:400;font-size:clamp(28px,4.6vw,62px);line-height:1.06;letter-spacing:-.01em;max-width:18ch + 100%}
 .intro__text [data-split]{display:inline}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:clamp(60px,9vw,130px);border-top:1px solid var(--line);padding-top:50px}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:40px 30px;margin-top:clamp(60px,9vw,130px);border-top:1px solid var(--line);padding-top:50px}
 .stat__num{font-family:var(--serif);font-size:clamp(60px,9vw,120px);line-height:.85;display:inline-block}
 .stat__plus{display:inline-block;font-family:var(--serif);font-size:clamp(26px,4vw,46px);color:var(--accent);vertical-align:top}
 .stat p{margin-top:18px;color:var(--cream-dim);font-size:15px;max-width:24ch}
@@ -209,6 +209,12 @@ section{position:relative;padding:clamp(80px,12vw,180px) clamp(20px,4vw,50px)}
 @media(max-width:760px){.svc__row{grid-template-columns:36px 1fr 28px;}.svc__sum{display:none}.svc__detail>p,.svc__chips{padding-left:0}}
 
 /* ---------- Process ---------- */
+.howiwork__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(28px,3.5vw,48px)}
+.hiw{border-top:1px solid var(--line);padding-top:26px}
+.hiw__no{font-family:var(--sans);font-size:13px;letter-spacing:.14em;color:var(--accent)}
+.hiw h3{font-family:var(--serif);font-weight:400;font-size:clamp(23px,2.6vw,30px);line-height:1.12;letter-spacing:-.01em;margin:14px 0 14px}
+.hiw p{color:var(--cream-dim);font-size:15.5px;line-height:1.62}
+@media(max-width:880px){.howiwork__grid{grid-template-columns:1fr;gap:38px}}
 .process__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
 .pcard{border:1px solid var(--line);border-radius:14px;padding:28px 24px 36px;min-height:240px;display:flex;flex-direction:column;transition:background .5s,transform .5s var(--ease)}
 .pcard:hover{background:var(--ink-soft);transform:translateY(-6px)}

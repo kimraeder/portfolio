@@ -4,8 +4,8 @@
     {
       "name": "portfolio",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "4321", "--directory", "/Users/buiraeder/portfolio"],
-      "port": 4321
+      "runtimeArgs": ["-m", "http.server", "4322", "--directory", "/Users/buiraeder/portfolio"],
+      "port": 4322
     }
   ]
 }
